@@ -4,12 +4,12 @@ from logger import logger
 from summa import summa
 from erotus import erotus
 
-logger("aloitetaan") # muutos mainissa
+logger("aloitetaan")
 
-x = int(input("luku 1: "))
-y = int(input("luku 2: "))
+x = int(input("luku 1: ")) # muutos mainissa
+y = int(input("luku 2: ")) # muutos mainissa
 print(f"{summa(x, y)}")
 print(f"{erotus(x, y)}")
 
 logger("lopetetaan")
-print("goodbye!") #lisäys bugikorjaus-branchissä
+print("goodbye!")
