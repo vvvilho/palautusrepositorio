@@ -1,4 +1,4 @@
-from logger import logger
+from logger import logger #muutos kloonin main haaraan
 from summa import summa
 from erotus import erotus
 from tulo import tulo
