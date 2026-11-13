@@ -49,6 +49,9 @@ class UserService:
             # salasanan on oltava vähintään 8 merkkiä
             raise UserInputError("Too short password")
 
+        if not any(character.isdigit() for character in password):
+            raise UserInputError("Password must contain a number")
+
         if password != password_confirmation:
             raise UserInputError("Passwords do not match")
 

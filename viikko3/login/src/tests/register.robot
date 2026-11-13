@@ -28,6 +28,20 @@ Register With Valid Username And Too Short Password
     Click  button >> text=Register
     Get Text  body  *=  Too short password
 
+Register With Password Consisting Only Of Letters
+    Create Username  antti
+    Create Password  password
+    Password confirmation  password
+    Click  button >> text=Register
+    Register Should Fail With Message  Password must contain a number
+
+Register With Mismatched Password Confirmation
+    Create Username  antti
+    Create Password  password1
+    Password confirmation  password2
+    Click  button >> text=Register
+    Register Should Fail With Message  Passwords do not match
+
 Register With Username That Is Already In Use
     Create Username  mikko
     Create Password  apina345
