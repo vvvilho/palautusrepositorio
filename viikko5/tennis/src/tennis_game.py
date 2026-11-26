@@ -1,4 +1,4 @@
-scores = {
+SCORES = {
     0: "Love",
     1: "Fifteen",
     2: "Thirty",
@@ -15,16 +15,15 @@ class TennisGame:
     def won_point(self, player_name):
         if player_name == "player1":
             self.player1_score = self.player1_score + 1
-        else:
+        if player_name == "player2":
             self.player2_score = self.player2_score + 1
 
     def get_score(self):
-
         if self.player1_score == self.player2_score:
             return self.even_score()
 
-        elif self.player1_score >= 4 or self.player2_score >= 4:
-            return self.advantage_win()
+        if self.player1_score >= 4 or self.player2_score >= 4:
+            return self.advantage_or_win()
         else:
             return self.regular_score()
 
@@ -32,10 +31,10 @@ class TennisGame:
     def even_score(self):
         
         if self.player1_score < 3:
-            return f"{scores[self.player1_score]}-All"
+            return f"{SCORES[self.player1_score]}-All"
         return "Deuce"
 
-    def advantage_win(self):
+    def advantage_or_win(self):
         difference = self.player1_score - self.player2_score
         leader = "player1" if difference > 0 else "player2"
 
@@ -44,6 +43,6 @@ class TennisGame:
         return f"Win for {leader}"
 
     def regular_score(self):
-        player1 = scores[self.player1_score]
-        player2 = scores[self.player2_score]
+        player1 = SCORES[self.player1_score]
+        player2 = SCORES[self.player2_score]
         return f"{player1}-{player2}"
